@@ -17,7 +17,7 @@ def get_chem_id(ret_time, chemmeta_df):
         begin_ret_time, end_ret_time, chem_id = list(line)
         if ret_time >= float(begin_ret_time) and ret_time <= float(end_ret_time):
             return chem_id
-    return  # no id found!
+    return  # no id found, return None
 
 
 def get_meta_data(directory, filename, meta_df):
@@ -60,32 +60,39 @@ def get_meta_data(directory, filename, meta_df):
 # Create an object to log errors that occur
 logger = Logger("", "log.txt", erase_on_init=True)
 
-# Define a folder for where all necessary input data should be
-processed_input_folder = "ProcessedInput"
-# Define a folder where the output will go
-output_folder = "Output"
+# Define a folder for where all necessary input data should be.
+# PIF stands for processed input folder.
+PIF = "ProcessedInput"
+if not os.path.exists(PIF):
+    raise OSError("The directory ___ does not exist. Please run accumulate_report01s.py to create and populate it.")
+
+# Define a folder where the output will go. OF stands for output folder
+OF = "Output"
+if not os.path.exists(OF):
+    print("Output directory did not exist: Created Output directory.")
+    os.mkdir("Output")
 
 # Get the chemical meta data for reference later
-chemmeta_df = pd.read_csv(f"{processed_input_folder}/chemmeta.csv")
+chemmeta_df = pd.read_csv(f"{PIF}/chemmeta.csv")
 # Get a list of all unique chemical ids
 all_chem_ids = list(set(chemmeta_df["ChemicalID"]))
 
 # Get the sample meta data for reference later
-meta_df = pd.read_csv(f"{processed_input_folder}/supermeta.csv")
+meta_df = pd.read_csv(f"{PIF}/supermeta.csv")
 # Sort the meta data for easier reference
 meta_df = meta_df.sort_values(by=["FileName"])
 
 
 # Get a list of all the processed data folders, i.e. they have been
 # output by accumulate_report01s.py
-processed_data_folders = os.listdir(processed_input_folder)
+processed_data_folders = os.listdir(PIF)
 # Exclude the meta data files and hidden files like .DS_Store
 processed_data_folders = [folder_name for folder_name in processed_data_folders
                           if folder_name[-4:] != ".csv" and folder_name[0] != "."]
 for folder_name in processed_data_folders:
 
     # This is the folder where all of the input data should be
-    accumulated_folder_path = f"{processed_input_folder}/{folder_name}"
+    accumulated_folder_path = f"{PIF}/{folder_name}"
 
     # Get a list of all the file names containing raw data
     filenames = [filename for filename in os.listdir(accumulated_folder_path)
@@ -102,7 +109,6 @@ for folder_name in processed_data_folders:
     for filename in filenames:
         # Get the data from the file
         df = pd.read_csv(f"{accumulated_folder_path}/{filename}")
-        print(df)
 
         # Get the meta data associated with this file via filename
         meta_data = get_meta_data(folder_name[4:], filename, meta_df)
@@ -137,4 +143,4 @@ for folder_name in processed_data_folders:
 
     # Save the final dataset if it actually has data in it
     if len(output_df.values) > 0:
-        output_df.to_excel(f"{output_folder}/{folder_name}_finalDataset.xlsx")
+        output_df.to_excel(f"{OF}/{folder_name}_finalDataset.xlsx")
