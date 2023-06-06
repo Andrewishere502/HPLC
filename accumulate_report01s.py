@@ -15,7 +15,8 @@ raw_input_folder = "RawInput"
 processed_input_folder = "ProcessedInput"
 
 # Get a list of all the raw data folders
-raw_data_folders = os.listdir(raw_input_folder)
+raw_data_folders = [folder for folder in os.listdir(raw_input_folder)
+                    if os.path.isdir(folder)]
 for folder_name in raw_data_folders:
 
     # Get all of the folders which have relevant Report01.csv files,
