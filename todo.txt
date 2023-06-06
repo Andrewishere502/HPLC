@@ -1,0 +1,10 @@
+### TODO ###
+get chemmeta.csv via collab with Jacob
+
+
+If this is program is gonna be used for future years:
+- add more error catching and logging
+- add a readme.txt, hopefully should be simple but still necessary
+- CLEAN COMMENTS and docstrings
+- Compartamentalize the code more, this procedural stuff is so freaking gross
+- Write plenty of doctests
