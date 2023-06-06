@@ -1,0 +1,237 @@
+Sort#,ParentFolderName,FileName,AccessionName,Sample,Condition,Species,ProportionSyriaca
+1,202203082022-03-0815-49-03,001-P1-A2-A1.D,A1,Olathe3 2,Drought,Hybrid,NA
+2,202203082022-03-0815-59-30,001-P1-A2-A1.D,A1,Olathe3 2,Drought,Hybrid,NA
+3,202203082022-03-0815-59-30,002-P1-A3-A11.D,A11,ShD1 3,Drought,Hybrid,0.65
+4,202203082022-03-0815-59-30,003-2-Rutin.D,Rutin_Standard,Rutin_Standard,na,na,NA
+5,202203162022-03-1618-15-58,001-P1-C12-no Sample Name.D,L11,CCNE1 2,Watered,Hybrid,NA
+6,202203162022-03-1618-15-58,002-P1-D1-no Sample Name.D,L12,SAOH2 1,Watered,Syriaca,0.98
+7,202203162022-03-1618-15-58,003-P1-D2-no Sample Name.D,L13,BRPL1 1,Watered,Hybrid,0.83
+8,202203162022-03-1618-15-58,004-P1-D3-no Sample Name.D,L15,Logan3 1,Watered,Speciosa,NA
+9,202203162022-03-1618-15-58,005-P1-D4-no Sample Name.D,G1,NTHS1 2,Drought,Hybrid,0.7
+10,202203162022-03-1618-15-58,006-P1-D5-no Sample Name.D,G2,CCNE1 3,Drought,Hybrid,NA
+11,202203162022-03-1618-15-58,007-P1-D6-no Sample Name.D,G3,OF1 5,Drought,Syriaca,0.87
+12,202203162022-03-1618-15-58,008-P1-D7-no Sample Name.D,G4,Ith17 4,Drought,Syriaca,0.99
+13,202203162022-03-1618-15-58,009-P1-D8-no Sample Name.D,G5,SAOH2 5,Drought,Syriaca,0.98
+14,202203162022-03-1618-15-58,010-P1-D9-no Sample Name.D,G6,SeaWa 3,Drought,Speciosa,NA
+15,202203162022-03-1618-15-58,011-P1-D10-no Sample Name.D,G7,Lola1 3,Drought,Speciosa,0
+16,202203162022-03-1618-15-58,012-P1-D11-no Sample Name.D,G8,BRPL1 3,Drought,Hybrid,0.83
+17,202203162022-03-1618-15-58,013-P1-D12-no Sample Name.D,G9,Longmont2 3,Drought,Speciosa,NA
+18,202203162022-03-1618-15-58,014-P1-E1-no Sample Name.D,G10,CCNE1 2,Drought,Hybrid,NA
+19,202203162022-03-1618-15-58,015-P1-E2-no Sample Name.D,G11,NTHS1 3,Drought,Hybrid,0.7
+20,202203162022-03-1618-15-58,016-P1-E3-no Sample Name.D,G12,Ham1 2,Drought,Speciosa,0
+21,202203162022-03-1618-15-58,017-P1-E4-no Sample Name.D,G13,CCNE1 5,Drought,Hybrid,NA
+22,202203162022-03-1618-15-58,018-P1-E5-no Sample Name.D,G14,Logan3 5,Drought,Speciosa,NA
+23,202203162022-03-1618-15-58,019-1-no Sample Name.D,MeOH_Blank,MeOH_Blank,na,na,NA
+24,202203162022-03-1618-15-58,020-2-no Sample Name.D,Rutin_Standard,Rutin_Standard,na,na,NA
+25,202203172022-03-1718-24-01,001-P1-F3-G14.D,G14,Logan3 5,Drought,Speciosa,NA
+26,202203172022-03-1718-24-01,002-P1-F4-G16.D,G16,FF1 4,Drought,Syriaca,0.9
+27,202203172022-03-1718-24-01,003-P1-F5-H1.D,H1,Ith17 1,Watered,Syriaca,0.99
+28,202203172022-03-1718-24-01,004-P1-F6-H2.D,H2,MCN1 1,Watered,Speciosa,0
+29,202203172022-03-1718-24-01,005-P1-F7-H3.D,H3,EDF 1,Watered,Speciosa,NA
+30,202203172022-03-1718-24-01,006-P1-F8-H4.D,H4,EDF 2,Watered,Speciosa,NA
+31,202203172022-03-1718-24-01,007-P1-F9-H5.D,H5,NTHS1 2,Watered,Hybrid,0.7
+32,202203172022-03-1718-24-01,008-P1-F10-H6.D,H6,Bismark1 2,Watered,Hybrid,NA
+33,202203172022-03-1718-24-01,009-P1-F11-H7.D,H7,Longmont2 1,Watered,Speciosa,NA
+34,202203172022-03-1718-24-01,010-P1-F12-H8.D,H8,Taos2 1,Watered,Speciosa,NA
+35,202203172022-03-1718-24-01,011-P1-G1-H9.D,H9,PG1-2 1,Watered,Hybrid,0.61
+36,202203172022-03-1718-24-01,012-P1-G2-H10.D,H10,BMN1 2,Watered,Syriaca,0.92
+37,202203172022-03-1718-24-01,013-P1-G3-H11.D,H11,PG1-2 1,Watered,Hybrid,0.61
+38,202203172022-03-1718-24-01,014-P1-G4-H12.D,H12,SaOH2 1,Watered,Syriaca,0.98
+39,202203172022-03-1718-24-01,015-P1-G5-H13.D,H13,ShD1 1,Watered,Hybrid,0.65
+40,202203172022-03-1718-24-01,016-P1-G6-H14.D,H14,EllWa 1,Watered,Speciosa,0
+41,202203172022-03-1718-24-01,017-P1-G7-H15.D,H15,DGIL 2,Watered,Syriaca,0.98
+42,202203172022-03-1718-24-01,018-P1-G8-H16.D,H16,FF1 1,Watered,Syriaca,0.9
+43,202203172022-03-1718-24-01,019-1-MeOH Blank.D,MeOH_Blank,MeOH_Blank,na,na,NA
+44,202203172022-03-1718-24-01,020-2-Rutin Standard.D,Rutin_Standard,Rutin_Standard,na,na,NA
+45,202203242022-03-2417-06-32,001-P1-G9-I1.D,I1,Logan3 3,Drought,Speciosa,NA
+46,202203242022-03-2417-06-32,002-P1-G10-I3.D,I3,PG1-2 2,Drought,Hybrid,0.61
+47,202203242022-03-2417-06-32,003-P1-G11-I4.D,I4,EDF 5,Drought,Speciosa,NA
+48,202203242022-03-2417-06-32,004-P1-G12-I5.D,I5,WNC1 2,Drought,Speciosa,0.09
+49,202203242022-03-2417-06-32,005-P1-H1-I6.D,I6,ISB1-2 5,Drought,Syriaca,0.92
+50,202203242022-03-2417-06-32,006-P1-H2-I8.D,I8,Olathe3 3,Drought,Hybrid,NA
+51,202203242022-03-2417-06-32,007-P1-H3-I9.D,I9,SeaWa 3,Drought,Speciosa,NA
+52,202203242022-03-2417-06-32,008-P1-H4-I10.D,I10,MCN1 4,Drought,Speciosa,0
+53,202203242022-03-2417-06-32,009-P1-H5-I11.D,I11,EB3 5,Drought,Syriaca,1
+54,202203242022-03-2417-06-32,010-P1-H6-I12.D,I12,PG1-2 4,Drought,Hybrid,0.61
+55,202203242022-03-2417-06-32,011-P1-H7-I13.D,I13,SAOH2 3,Drought,Syriaca,0.98
+56,202203242022-03-2417-06-32,012-P1-H8-I14.D,I14,ISB1-2 3,Drought,Syriaca,0.92
+57,202203242022-03-2417-06-32,013-P1-H9-I15.D,I15,PG1-2 5,Drought,Hybrid,0.61
+58,202203242022-03-2417-06-32,014-P1-H10-I16.D,I16,BMN1 3,Drought,Syriaca,0.92
+59,202203242022-03-2417-06-32,015-P1-H11-M1.D,M1,BRPL1 3,Drought,Hybrid,0.83
+60,202203242022-03-2417-06-32,016-P1-H12-M2.D,M2,ShD1 2,Drought,Hybrid,0.65
+61,202203242022-03-2417-06-32,017-P2-A1-M4.D,M4,BMN1 4,Drought,Syriaca,0.92
+62,202203242022-03-2417-06-32,018-P2-A2-M5.D,M5,PMD1 4,Drought,Syriaca,0.9
+63,202203242022-03-2417-06-32,019-1-MeOH Blank.D,MeOH_Blank,MeOH_Blank,na,na,NA
+64,202203242022-03-2417-06-32,020-2-Rutin Standard.D,Rutin_Standard,Rutin_Standard,na,na,NA
+65,202204062022-04-0616-32-51,001-P1-A3-M6.D,M6,Taos2 4,Drought,Speciosa,NA
+66,202204062022-04-0616-32-51,002-P1-A4-M7.D,M7,SAOH2 2,Drought,Syriaca,0.98
+67,202204062022-04-0616-32-51,003-P1-A5-M8.D,M8,DGIL 3,Drought,Syriaca,0.98
+68,202204062022-04-0616-32-51,004-P1-A6-M9.D,M9,Logan3 2,Drought,Speciosa,NA
+69,202204062022-04-0616-32-51,005-P1-A7-M10.D,M10,F1Mak2-9 5,Drought,Hybrid,0.19
+70,202204062022-04-0616-32-51,006-P1-A8-M11.D,M11,EllWa1 1,Drought,Speciosa,0
+71,202204062022-04-0616-32-51,007-P1-A9-M12.D,M12,EllWa1 2,Drought,Speciosa,0
+72,202204062022-04-0616-32-51,008-P1-A10-M13.D,M13,FF1 3,Drought,Syriaca,0.9
+73,202204062022-04-0616-32-51,009-P1-A11-M15.D,M15,Logan3 3,Drought,Speciosa,NA
+74,202204062022-04-0616-32-51,010-P1-A12-M16.D,M16,Longmont2 2,Drought,Speciosa,NA
+75,202204062022-04-0616-32-51,011-P1-B1-N1.D,N1,F1Cox1-8 2,Watered,Hybrid,NA
+76,202204062022-04-0616-32-51,012-P1-B2-N2.D,N2,Longmont2 1,Watered,Speciosa,NA
+77,202204062022-04-0616-32-51,013-P1-B3-N3.D,N3,Taos2 1,Watered,Speciosa,NA
+78,202204062022-04-0616-32-51,014-P1-B4-N4.D,N4,Ith17 2,Watered,Syriaca,0.99
+79,202204062022-04-0616-32-51,015-P1-B5-N5.D,N5,MCN1 1,Watered,Speciosa,0
+80,202204062022-04-0616-32-51,016-P1-B6-N6.D,N6,Olathe3 1,Watered,Hybrid,NA
+81,202204062022-04-0616-32-51,017-P1-B7-N7.D,N7,SeaWa 1,Watered,Speciosa,NA
+82,202204062022-04-0616-32-51,018-P1-B8-N8.D,N8,ShD1 1,Watered,Hybrid,0.65
+83,202204062022-04-0616-32-51,019-P1-B9-N9.D,N9,ADAC1 1,Watered,Speciosa,NA
+84,202204062022-04-0616-32-51,020-P1-B10-N10.D,N10,Taos2 2,Watered,Speciosa,NA
+85,202204062022-04-0616-32-51,021-P1-B11-N11.D,N11,BRPL1 2,Watered,Hybrid,0.83
+86,202204062022-04-0616-32-51,022-P1-B12-N12.D,N12,Longmont2 2,Watered,Speciosa,NA
+87,202204062022-04-0616-32-51,023-1-MeOH Blank.D,MeOH_Blank,MeOH_Blank,na,na,NA
+88,202204062022-04-0616-32-51,024-2-Rutin Standard.D,Rutin_Standard,Rutin_Standard,na,na,NA
+89,New2022-03-0819-03-56,001-P1-A4-no Sample Name.D,J1,PG1-2 1,Watered,Hybrid,0.61
+90,New2022-03-0819-03-56,002-P1-A5-no Sample Name.D,J2,EB3 1,Watered,Syriaca,1
+91,New2022-03-0819-03-56,003-P1-A6-no Sample Name.D,J3,BG1 2,Watered,Hybrid,NA
+92,New2022-03-0819-03-56,004-P1-A7-no Sample Name.D,J4,F1Mak2-9 1,Watered,Hybrid,0.19
+93,New2022-03-0819-03-56,005-P1-A8-no Sample Name.D,J5,WNC1 1,Watered,Speciosa,0.09
+94,New2022-03-0819-03-56,006-P1-A9-no Sample Name.D,J6,SeaWa 1,Watered,Speciosa,NA
+95,New2022-03-0819-03-56,007-P1-A10-no Sample Name.D,J7,ISB1-2 1,Watered,Syriaca,0.92
+96,New2022-03-0819-03-56,008-P1-A11-no Sample Name.D,J8,NTHS1 1,Watered,Hybrid,0.7
+97,New2022-03-0819-03-56,009-P1-A12-no Sample Name.D,J9,ShD1 1,Watered,Hybrid,0.65
+98,New2022-03-0819-03-56,010-P1-B1-no Sample Name.D,J10,BG1 1,Watered,Hybrid,NA
+99,New2022-03-0819-03-56,011-P1-B2-no Sample Name.D,J11,Olathe3 2,Watered,Hybrid,NA
+100,New2022-03-0819-03-56,012-P1-B3-no Sample Name.D,J12,PMD1 1,Watered,Syriaca,0.9
+101,New2022-03-0819-03-56,013-P1-B4-no Sample Name.D,J13,WNC1 1,Watered,Speciosa,0.09
+102,New2022-03-0819-03-56,014-P1-B5-no Sample Name.D,J14,BRPL1 2,Watered,Hybrid,0.83
+103,New2022-03-0819-03-56,015-P1-B6-no Sample Name.D,J15,ShD1 2,Watered,Hybrid,0.65
+104,New2022-03-0819-03-56,016-P1-B7-no Sample Name.D,J16,EB3 2,Watered,Syriaca,1
+105,New2022-03-0819-03-56,017-P1-B8-no Sample Name.D,K1,F1Mak2-9 2,Drought,Hybrid,0.19
+106,New2022-03-0819-03-56,018-P1-B9-no Sample Name.D,K2,BMN1 3,Drought,Syriaca,0.92
+107,New2022-03-0819-03-56,019-P1-B10-no Sample Name.D,K3,BRPL1 4,Drought,Hybrid,0.83
+108,New2022-03-0819-03-56,020-P1-B11-no Sample Name.D,K4,F1Mak2-9 1,Drought,Hybrid,0.19
+109,New2022-03-0819-03-56,021-P1-B12-no Sample Name.D,K5,CCNE1 4,Drought,Hybrid,NA
+110,New2022-03-0819-03-56,022-P1-C1-no Sample Name.D,K6,PMD1 3,Drought,Syriaca,0.9
+111,New2022-03-0819-03-56,023-P1-C2-no Sample Name.D,K7,OF1 3,Drought,Syriaca,0.87
+112,New2022-03-0819-03-56,024-P1-C3-no Sample Name.D,K8,WNC1 2,Drought,Speciosa,0.09
+113,New2022-03-0819-03-56,025-1-no Sample Name.D,MeOH_Blank,MeOH_Blank,na,na,NA
+114,New2022-03-0819-03-56,026-2-no Sample Name.D,Rutin_Standard,Rutin_Standard,na,na,NA
+115,New2022-03-0917-17-40,001-P1-C4-no Sample Name.D,K9,Longmont2 4,Drought,Speciosa,NA
+116,New2022-03-0917-17-40,002-P1-C5-no Sample Name.D,K10,Ith17 5,Drought,Syriaca,0.99
+117,New2022-03-0917-17-40,003-P1-C6-no Sample Name.D,K11,F1Mak2-9 3,Drought,Hybrid,0.19
+118,New2022-03-0917-17-40,004-P1-C7-no Sample Name.D,K12,Taos2 5,Drought,Speciosa,NA
+119,New2022-03-0917-17-40,005-P1-C8-no Sample Name.D,K13,SeaWa 4,Drought,Speciosa,NA
+120,New2022-03-0917-17-40,006-P1-C9-no Sample Name.D,K14,FF1 2,Drought,Syriaca,0.9
+121,New2022-03-0917-17-40,007-P1-C10-no Sample Name.D,L1,PMD1 1,Watered,Syriaca,0.9
+122,New2022-03-0917-17-40,008-P1-C11-no Sample Name.D,L2,PG1-2 2,Watered,Hybrid,0.61
+123,New2022-03-0917-17-40,009-P1-C12-no Sample Name.D,L3,Logan3 2,Watered,Speciosa,NA
+124,New2022-03-0917-17-40,010-P1-D1-no Sample Name.D,L4,BMN1 1,Watered,Syriaca,0.92
+125,New2022-03-0917-17-40,011-P1-D2-no Sample Name.D,L5,EDF 1,Watered,Speciosa,NA
+126,New2022-03-0917-17-40,012-P1-D3-no Sample Name.D,L6,NTHS1 1,Watered,Hybrid,0.7
+127,New2022-03-0917-17-40,013-P1-D4-no Sample Name.D,L7,SeaWa 1,Watered,Speciosa,NA
+128,New2022-03-0917-17-40,014-P1-D5-no Sample Name.D,L8,Logan3 1,Watered,Speciosa,NA
+129,New2022-03-0917-17-40,015-P1-D6-no Sample Name.D,L9,SAOH2 1,Watered,Syriaca,0.98
+130,New2022-03-0917-17-40,016-P1-D7-no Sample Name.D,L10,PMD1 1,Watered,Syriaca,0.9
+131,New2022-03-0917-17-40,017-1-no Sample Name.D,MeOH_Blank,MeOH_Blank,na,na,NA
+132,New2022-03-0917-17-40,018-2-no Sample Name.D,Rutin_Standard,Rutin_Standard,na,na,NA
+133,PP_SiouxFalls_080220212021-08-0215-23-25,001-P2-F3-no Sample Name.D,F16,BRPL1 1,Watered,Hybrid,0.83
+134,PP_SiouxFalls_080220212021-08-0215-23-25,002-P2-F4-no Sample Name.D,F15,ShD1 2,Watered,Hybrid,0.65
+135,PP_SiouxFalls_080220212021-08-0215-23-25,003-P2-F5-no Sample Name.D,F15,ShD1 2,Watered,Hybrid,0.65
+136,PP_SiouxFalls_080220212021-08-0215-23-25,004-P2-F6-no Sample Name.D,F14,FF1 2,Watered,Syriaca,0.9
+137,PP_SiouxFalls_080220212021-08-0215-23-25,005-P2-F7-no Sample Name.D,F13,EllWa 3,Watered,Speciosa,0
+138,PP_SiouxFalls_080220212021-08-0215-23-25,006-P2-F8-no Sample Name.D,F12,EllWa 2,Watered,Speciosa,0
+139,PP_SiouxFalls_080220212021-08-0215-23-25,007-P2-F9-no Sample Name.D,F11,FF1 1,Watered,Syriaca,0.9
+140,PP_SiouxFalls_080220212021-08-0215-23-25,008-P2-F10-no Sample Name.D,F10,Ith17 1,Watered,Syriaca,0.99
+141,PP_SiouxFalls_080220212021-08-0215-23-25,009-P2-F11-no Sample Name.D,O12,ShD1 4,Drought,Hybrid,0.65
+142,PP_SiouxFalls_080220212021-08-0215-23-25,010-P2-F12-no Sample Name.D,O9,F1Cox1-8 1,Drought,Hybrid,NA
+143,PP_SiouxFalls_080220212021-08-0215-23-25,011-P2-G1-no Sample Name.D,O8,SAOH2 4,Drought,Syriaca,0.98
+144,PP_SiouxFalls_080220212021-08-0215-23-25,012-P2-G2-no Sample Name.D,O7,Taos2 3,Drought,Speciosa,NA
+145,PP_SiouxFalls_080220212021-08-0215-23-25,013-P2-G3-no Sample Name.D,O6,Ith17 3,Drought,Syriaca,0.99
+146,PP_SiouxFalls_080220212021-08-0215-23-25,014-P2-G4-no Sample Name.D,O5,NTHS1 5,Drought,Hybrid,0.7
+147,PP_SiouxFalls_080220212021-08-0215-23-25,015-P2-G5-no Sample Name.D,O4,Logan3 4,Drought,Speciosa,NA
+148,PP_SiouxFalls_080220212021-08-0215-23-25,016-P2-G6-no Sample Name.D,O3,PG1-2 3,Drought,Hybrid,0.61
+149,PP_SiouxFalls_080220212021-08-0215-23-25,017-P2-G7-no Sample Name.D,F1,BRPL1 1,Watered,Hybrid,0.83
+150,PP_SiouxFalls_080220212021-08-0215-23-25,018-P2-G8-no Sample Name.D,E16,PMD1 3,Drought,Syriaca,0.9
+151,PP_SiouxFalls_080220212021-08-0215-23-25,019-P2-G9-no Sample Name.D,E15,Lola1 4,Drought,Speciosa,0
+152,PP_SiouxFalls_080220212021-08-0215-23-25,020-P2-G10-no Sample Name.D,E14,MCN1 2,Drought,Speciosa,0
+153,PP_SiouxFalls_080220212021-08-0215-23-25,021-P2-G11-no Sample Name.D,E13,SAOH2 2,Drought,Syriaca,0.98
+154,PP_SiouxFalls_080220212021-08-0309-51-12,001-P2-A1-no Sample Name.D,,,,,
+155,PP_SiouxFalls_080220212021-08-0309-51-12,002-P2-A3-no Sample Name.D,E11,NTHS1 3,Drought,Hybrid,0.7
+156,PP_SiouxFalls_080220212021-08-0309-51-12,003-P2-A4-no Sample Name.D,E10,OF1 3,Drought,Syriaca,0.87
+157,PP_SiouxFalls_080220212021-08-0309-51-12,004-P2-A5-no Sample Name.D,E9,DGIL 4,Drought,Syriaca,0.98
+158,PP_SiouxFalls_080220212021-08-0309-51-12,005-P2-A6-no Sample Name.D,E8,DGIL 2,Drought,Syriaca,0.98
+159,PP_SiouxFalls_080220212021-08-0309-51-12,006-P2-A7-no Sample Name.D,E7,Lola1 3,Drought,Speciosa,0
+160,PP_SiouxFalls_080220212021-08-0309-51-12,007-P2-A8-no Sample Name.D,E6,Longmont2 5,Drought,Speciosa,NA
+161,PP_SiouxFalls_080220212021-08-0309-51-12,008-P2-A9-no Sample Name.D,E5,MCN1 5,Drought,Speciosa,0
+162,PP_SiouxFalls_080220212021-08-0309-51-12,009-P2-A10-no Sample Name.D,E4,ADAC1 2,Drought,Speciosa,NA
+163,PP_SiouxFalls_080220212021-08-0309-51-12,010-P2-A11-no Sample Name.D,E3,WNC1 3,Drought,Speciosa,0.09
+164,PP_SiouxFalls_080220212021-08-0309-51-12,011-P2-A12-no Sample Name.D,E2,ShD1 5,Drought,Hybrid,0.65
+165,PP_SiouxFalls_080220212021-08-0309-51-12,012-P2-B1-no Sample Name.D,E1,Ham1 3,Drought,Speciosa,0
+166,PP_SiouxFalls_080220212021-08-0309-51-12,013-P2-B2-no Sample Name.D,D16,Taos2 1,Watered,Speciosa,NA
+167,PP_SiouxFalls_080220212021-08-0309-51-12,014-P2-B3-no Sample Name.D,D15,OF1 1,Watered,Syriaca,0.87
+168,PP_SiouxFalls_080220212021-08-0309-51-12,015-P2-B4-no Sample Name.D,D13,FF1 1,Watered,Syriaca,0.9
+169,PP_SiouxFalls_080220212021-08-0309-51-12,016-P2-B5-no Sample Name.D,D12,BG1 1,Watered,Hybrid,NA
+170,PP_SiouxFalls_080220212021-08-0309-51-12,017-P2-B6-no Sample Name.D,D10,Ith17 1,Watered,Syriaca,0.99
+171,PP_SiouxFalls_080220212021-08-0309-51-12,018-P2-B7-no Sample Name.D,D9,Logan3 1,Watered,Speciosa,NA
+172,PP_SiouxFalls_080220212021-08-0309-51-12,019-P2-B8-no Sample Name.D,D8,ISB1-2 2,Watered,Syriaca,0.92
+173,PP_SiouxFalls_080220212021-08-0309-51-12,020-P2-B9-no Sample Name.D,D7,SeaWa 2,Watered,Speciosa,NA
+174,PP_SiouxFalls_080220212021-08-0309-51-12,021-P2-B10-no Sample Name.D,D6,Ham1 2,Watered,Speciosa,0
+175,PP_SiouxFalls_080220212021-08-0309-51-12,022-P2-B11-no Sample Name.D,D5,MCN1 1,Watered,Speciosa,0
+176,PP_SiouxFalls_080220212021-08-0309-51-12,023-P2-B12-no Sample Name.D,D4,F1Cox1-8 2,Watered,Hybrid,NA
+177,PP_SiouxFalls_080220212021-08-0309-51-12,024-P2-C1-no Sample Name.D,D3,Longmont2 1,Watered,Speciosa,NA
+178,PP_SiouxFalls_080220212021-08-0309-51-12,025-P2-C2-no Sample Name.D,D2,CCNE1 1,Watered,Hybrid,NA
+179,PP_SiouxFalls_080220212021-08-0309-51-12,026-P2-C3-no Sample Name.D,D1,Ham1 1,Watered,Speciosa,0
+180,PP_SiouxFalls_080220212021-08-0309-51-12,027-P2-C4-no Sample Name.D,C16,BRPL1 2,Drought,Hybrid,0.83
+181,PP_SiouxFalls_080220212021-08-0309-51-12,028-P2-C5-no Sample Name.D,C14,NTHS1 4,Drought,Hybrid,0.7
+182,PP_SiouxFalls_080220212021-08-0309-51-12,029-P2-C6-no Sample Name.D,C13,Taos2 2,Drought,Speciosa,NA
+183,PP_SiouxFalls_080420212021-08-0409-54-58,001-P2-F3-no Sample Name.D,,,,,
+184,PP_SiouxFalls_080420212021-08-0409-54-58,002-P2-C7-no Sample Name.D,C12,BG1 4,Drought,Hybrid,NA
+185,PP_SiouxFalls_080420212021-08-0409-54-58,003-P2-C8-no Sample Name.D,C11,ShD1 3,Drought,Hybrid,0.65
+186,PP_SiouxFalls_080420212021-08-0409-54-58,004-P2-C9-no Sample Name.D,C9,CCNE1 3,Drought,Hybrid,NA
+187,PP_SiouxFalls_080420212021-08-0409-54-58,005-P2-C10-no Sample Name.D,C8,EDF 3,Drought,Speciosa,NA
+188,PP_SiouxFalls_080420212021-08-0409-54-58,006-P2-C11-no Sample Name.D,C7,BG1 3,Drought,Hybrid,NA
+189,PP_SiouxFalls_080420212021-08-0409-54-58,007-P2-C12-no Sample Name.D,C6,Longmont2 3,Drought,Speciosa,NA
+190,PP_SiouxFalls_080420212021-08-0409-54-58,008-P2-D1-no Sample Name.D,C5,MCN1 3,Drought,Speciosa,0
+191,PP_SiouxFalls_080420212021-08-0409-54-58,009-P2-D2-no Sample Name.D,C4,WNC1 4,Drought,Speciosa,0.09
+192,PP_SiouxFalls_080420212021-08-0409-54-58,010-P2-D3-no Sample Name.D,C3,SeaWa 2,Drought,Speciosa,NA
+193,PP_SiouxFalls_080420212021-08-0409-54-58,011-P2-D4-no Sample Name.D,C2,Taos2 3,Drought,Speciosa,NA
+194,PP_SiouxFalls_080420212021-08-0409-54-58,012-P2-D5-no Sample Name.D,C1,EB3 3,Drought,Syriaca,1
+195,PP_SiouxFalls_080420212021-08-0409-54-58,013-P2-D7-no Sample Name.D,B15,OF1 2,Watered,Syriaca,0.87
+196,PP_SiouxFalls_080420212021-08-0409-54-58,014-P2-D8-no Sample Name.D,A4,DGIL 5,Drought,Syriaca,0.98
+197,PP_SiouxFalls_080420212021-08-0409-54-58,015-P2-D9-no Sample Name.D,A3,BMN1 2,Drought,Syriaca,0.92
+198,PP_SiouxFalls_080420212021-08-0409-54-58,016-P2-D10-no Sample Name.D,A2,Ith17 3,Drought,Syriaca,0.99
+199,PP_SiouxFalls_080420212021-08-0409-54-58,017-P2-D11-no Sample Name.D,A1,Olathe3 2,Drought,Hybrid,NA
+200,PP_SiouxFalls_080420212021-08-0409-54-58,018-P2-D12-no Sample Name.D,P16,SAOH2 2,Watered,Syriaca,0.98
+201,PP_SiouxFalls_080420212021-08-0409-54-58,019-P2-E1-no Sample Name.D,P9,BMN1 1,Watered,Syriaca,0.92
+202,PP_SiouxFalls_080420212021-08-0409-54-58,020-P2-E2-no Sample Name.D,P7,EB3 2,Watered,Syriaca,1
+203,PP_SiouxFalls_080420212021-08-0409-54-58,021-P2-E3-no Sample Name.D,B7,PG1-2 2,Watered,Hybrid,0.61
+204,PP_SiouxFalls_080420212021-08-0409-54-58,022-P2-E4-no Sample Name.D,B6,MCN1 2,Watered,Speciosa,0
+205,PP_SiouxFalls_080420212021-08-0409-54-58,023-P2-E5-no Sample Name.D,B5,ADAC1 2,Watered,Speciosa,NA
+206,PP_SiouxFalls_080420212021-08-0409-54-58,024-P2-E6-no Sample Name.D,B4,Lola1 2,Watered,Speciosa,0
+207,PP_SiouxFalls_080420212021-08-0409-54-58,025-P2-E7-no Sample Name.D,B3,F1Mak2-9 2,Watered,Hybrid,0.19
+208,PP_SiouxFalls_080420212021-08-0409-54-58,026-P2-E8-no Sample Name.D,B2,NTHS1 2,Watered,Hybrid,0.7
+209,PP_SiouxFalls_080420212021-08-0409-54-58,027-P2-E9-no Sample Name.D,B1,Logan3 2,Watered,Speciosa,NA
+210,PP_SiouxFalls_080420212021-08-0409-54-58,028-P2-E10-no Sample Name.D,A16,FF1 3,Drought,Syriaca,0.9
+211,PP_SiouxFalls_080420212021-08-0409-54-58,029-P2-E11-no Sample Name.D,A11,ShD1 3,Drought,Hybrid,0.65
+212,PP_SiouxFalls_080420212021-08-0409-54-58,030-P2-E12-no Sample Name.D,A8,PG1-2 3,Drought,Hybrid,0.61
+213,PP_SiouxFalls_080420212021-08-0409-54-58,031-P2-F1-no Sample Name.D,A6,SeaWa 5,Drought,Speciosa,NA
+214,PP_SiouxFalls_080420212021-08-0409-54-58,032-P2-F2-no Sample Name.D,A5,BMN1 5,Drought,Syriaca,0.92
+215,PP_SiouxFalls_080420212021-08-0409-54-58,033-P2-F4-no Sample Name.D,P6,EllWa 4,Watered,Speciosa,0
+216,PP_SiouxFalls_080420212021-08-0409-54-58,034-P2-F5-no Sample Name.D,,,,,
+217,PP_SiouxFalls_080520212021-08-0512-57-29,001-P2-H1-no Sample Name.D,,,,,
+218,PP_SiouxFalls_080520212021-08-0512-57-29,002-P2-F6-no Sample Name.D,P4,F1Mak2-9 3,Watered,Hybrid,0.19
+219,PP_SiouxFalls_080520212021-08-0512-57-29,003-P2-F7-no Sample Name.D,P3,SeaWa 2,Watered,Speciosa,NA
+220,PP_SiouxFalls_080520212021-08-0512-57-29,004-P2-F8-no Sample Name.D,P2,Lola1 1,Watered,Speciosa,0
+221,PP_SiouxFalls_080520212021-08-0512-57-29,005-P2-F9-no Sample Name.D,P1,F1Mak2-9 1,Watered,Hybrid,0.19
+222,PP_SiouxFalls_080520212021-08-0512-57-29,006-P2-F10-no Sample Name.D,O16,MCN1 3,Drought,Speciosa,0
+223,PP_SiouxFalls_080520212021-08-0512-57-29,007-P2-F11-no Sample Name.D,O14,Lola1 5,Drought,Speciosa,0
+224,PP_SiouxFalls_080520212021-08-0512-57-29,008-P2-F12-no Sample Name.D,O13,ISB1-2 2,Drought,Syriaca,0.92
+225,PP_SiouxFalls_080520212021-08-0512-57-29,009-P2-G1-no Sample Name.D,F9,FF1 2,Watered,Syriaca,0.9
+226,PP_SiouxFalls_080520212021-08-0512-57-29,010-P2-G2-no Sample Name.D,F8,EDF 2,Watered,Speciosa,NA
+227,PP_SiouxFalls_080520212021-08-0512-57-29,011-P2-G3-no Sample Name.D,F7,OF1 2,Watered,Syriaca,0.87
+228,PP_SiouxFalls_080520212021-08-0512-57-29,012-P2-G4-no Sample Name.D,F6,DGIL 1,Watered,Syriaca,0.98
+229,PP_SiouxFalls_080520212021-08-0512-57-29,013-P2-G5-no Sample Name.D,F5,F1Mak2-9 2,Watered,Hybrid,0.19
+230,PP_SiouxFalls_080520212021-08-0512-57-29,014-P2-G6-no Sample Name.D,F4,OF1 1,Watered,Syriaca,0.87
+231,PP_SiouxFalls_080520212021-08-0512-57-29,015-P2-G7-no Sample Name.D,F3,WNC1 1,Watered,Speciosa,0.09
+232,PP_SiouxFalls_080520212021-08-0512-57-29,016-P2-G8-no Sample Name.D,F2,DGIL 2,Watered,Syriaca,0.98
+233,PP_SiouxFalls_080520212021-08-0512-57-29,017-P2-G9-no Sample Name.D,O2,FF1 5,Drought,Syriaca,0.9
+234,PP_SiouxFalls_080520212021-08-0512-57-29,018-P2-G10-no Sample Name.D,O1,Mak19-1 4,Drought,Syriaca,0.9
+235,PP_SiouxFalls_080520212021-08-0512-57-29,019-P2-G11-no Sample Name.D,N13,Longmont2 2,Watered,Speciosa,NA
+236,PP_SiouxFalls_080520212021-08-0512-57-29,020-P2-G12-no Sample Name.D,N12,Longmont2 2,Watered,Speciosa,NA
