@@ -14,9 +14,10 @@ logger = Logger("", "log.txt", erase_on_init=True)
 raw_input_folder = "RawInput"
 processed_input_folder = "ProcessedInput"
 
-# Get a list of all the raw data folders
+# Get a list of all the raw data folders. Parse non-folders by excluding
+# anything with a file extension.
 raw_data_folders = [folder for folder in os.listdir(raw_input_folder)
-                    if os.path.isdir(folder)]
+                    if len(folder.split(".")) == 0]
 for folder_name in raw_data_folders:
 
     # Get all of the folders which have relevant Report01.csv files,
