@@ -65,26 +65,31 @@ def load_peaks_txt(filename):
         jacobs_journal = [float(n) for n in file.read().split(",")]  
     return jacobs_journal
 
-def group_peaks(peaks):
-    """"""
+def group_peaks(peaks, margin):
+    """Iteratively group peaks that are within margin of each other until
+    no more peaks are within margin of each other.
+    """
+    # Get all unique peaks and sorted them
     unique_peaks = sorted(set(peaks))
-
-    margin = 0.15
+    
     buckets = [Bucket(peaks=[unique_peaks[0]])]  # Put first peak in bucket to start
     for peak in unique_peaks[1:]:  # skip the first peak
         if buckets[-1][-1] + margin >= peak:
             buckets[-1].add_peak(peak)
         else:
             buckets.append(Bucket([peak]))
-    print(f"Number of buckets: {len(buckets)}")
     return buckets
 
-
+# Set up the chemical meta data file, erasig it's contents if it
+# already exists.
 chemmeta_file = open("MakeChemMeta/chemmeta.csv", "w")
 chemmeta_file.write("BeginRetTime,EndRetTime,ChemicalID\n")
 
-cards = group_peaks(load_peaks_txt("card.txt"))
-pps =  group_peaks(load_peaks_txt("pp.txt"))
+card_buckets = group_peaks(load_peaks_txt("card.txt"))
+print(f"Number of cardenolide buckets: {len(card_buckets)}")
+
+pp_buckets =  group_peaks(load_peaks_txt("pp.txt"))
+print(f"Number of phenolpropanoid buckets: {len(pp_buckets)}")
 
 for bucket in cards:
     line = f"{bucket.min},{bucket.max},C{round(bucket.mean,1)}_Area\n"
