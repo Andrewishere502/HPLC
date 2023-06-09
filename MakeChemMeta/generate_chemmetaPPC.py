@@ -69,6 +69,7 @@ def group_peaks(peaks, margin):
     # Get all unique peaks and sorted them
     unique_peaks = sorted(set(peaks))
     
+    # Group the peaks into buckets
     buckets = [Bucket(peaks=[unique_peaks[0]])]  # Put first peak in bucket to start
     for peak in unique_peaks[1:]:  # skip the first peak
         if buckets[-1][-1] + margin >= peak:
@@ -88,11 +89,15 @@ def write_buckets(buckets, chemmeta_file, id_prefix=""):
 chemmeta_file = open("MakeChemMeta/chemmeta.csv", "w")
 chemmeta_file.write("BeginRetTime,EndRetTime,ChemicalID\n")
 
-card_buckets = group_peaks(load_peaks_txt("card.txt"))
+# Get the cardenolide specific buckets
+card_buckets = group_peaks(load_peaks_txt("card.txt"), 0.15)
+# Write the card buckets to chemmeta
 write_buckets(card_buckets, chemmeta_file, id_prefix="C")
 print(f"Number of cardenolide buckets: {len(card_buckets)}")
 
-pp_buckets =  group_peaks(load_peaks_txt("pp.txt"))
+# Get the phenolpropanoid specific buckets
+pp_buckets =  group_peaks(load_peaks_txt("pp.txt"), 0.15)
+# Write teh card buckets to chemmeta
 write_buckets(pp_buckets, chemmeta_file, id_prefix="PP")
 print(f"Number of phenolpropanoid buckets: {len(pp_buckets)}")
 
