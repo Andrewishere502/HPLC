@@ -11,23 +11,33 @@ from logger import Logger
 # Create an object to log errors that occur
 logger = Logger("", "log.txt", erase_on_init=True)
 
-raw_input_folder = "RawInput"
-processed_input_folder = "ProcessedInput"
+# RawInput is the folder to put all of the raw data into. RIF stands
+# for raw input folder
+RIF = "RawInput"
+if not os.path.exists(RIF):
+    raise OSError("RawInput folder not found. Please ensure it exists in your path and is named correctly.")
+
+# Define a folder for where all processed data should go. PIF stands
+# for processed input folder.
+PIF = "ProcessedInput"
+if not os.path.exists(PIF):
+    print("ProcessedInput directory did not exist: Created ProcessedInput.")
+    os.mkdir("ProcessedInput")
 
 # Get a list of all the raw data folders. Parse non-folders by excluding
 # anything with a file extension.
-raw_data_folders = [folder for folder in os.listdir(raw_input_folder)
+raw_data_folders = [folder for folder in os.listdir(RIF)
                     if len(folder.split(".")) == 1]
-for folder_name in raw_data_folders:
 
+for folder_name in raw_data_folders:
     # Get all of the folders which have relevant Report01.csv files,
-    # sorted alphanumerically
-    filenames = sorted([fn for fn in os.listdir(f"{raw_input_folder}/{folder_name}") if fn[-2:] == ".D"])
+    # sorted alphanumerically.
+    filenames = sorted([fn for fn in os.listdir(f"{RIF}/{folder_name}") if fn[-2:] == ".D"])
 
     # Make the folder for accumulated data
     accumulated_folder_name = "acc_" + folder_name
     try:
-        os.mkdir(f"{processed_input_folder}/{accumulated_folder_name}")
+        os.mkdir(f"{PIF}/{accumulated_folder_name}")
     except FileExistsError:
         pass
 
@@ -37,18 +47,18 @@ for folder_name in raw_data_folders:
         # Catch the error thrown if no Report01.csv file is found
         try:
             # Get the contents of the old file
-            with open(f"{raw_input_folder}/{folder_name}/{filename}/Report01.csv", "r", encoding="utf-16") as file:
+            with open(f"{RIF}/{folder_name}/{filename}/Report01.csv", "r", encoding="utf-16") as file:
                 # NOTE: the Report01.csv files have no headers, so don't skip
                 # first line.
                 lines = file.readlines()
         except FileNotFoundError:
             # This is a non-fatal error, log it and skip this file
-            logger.log(f"There was no Report01.csv file for {raw_input_folder}/{folder_name}/{filename}.")
+            logger.log(f"There was no Report01.csv file for {RIF}/{folder_name}/{filename}.")
             continue  # skip to next in filenames
 
         # Process the data and write it to a file named after the
         # lowest level parent folder the data was found in
-        with open(f"{processed_input_folder}/{accumulated_folder_name}/{filename}.csv", "w") as file:
+        with open(f"{PIF}/{accumulated_folder_name}/{filename}.csv", "w") as file:
             header = "Peak,RetTime,Area\n"
             file.write(header)
 
