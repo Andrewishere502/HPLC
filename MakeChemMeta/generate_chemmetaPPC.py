@@ -1,6 +1,3 @@
-from math import sqrt
-
-
 class Bucket:
     def __init__(self, peaks=[]):
         self.peaks = peaks
