@@ -67,7 +67,7 @@ def load_peakstxt(filename):
 
 def group_peaks(peaks):
     """"""
-    unique_peaks = list(set(peaks))
+    unique_peaks = sorted(set(peaks))
 
     margin = 0.15
     buckets = [Bucket(peaks=[unique_peaks[0]])]  # Put first peak in bucket to start
