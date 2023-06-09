@@ -73,12 +73,12 @@ if not os.path.exists(OF):
     os.mkdir("Output")
 
 # Get the chemical meta data for reference later
-chemmeta_df = pd.read_csv(f"chemmeta.csv")
+chemmeta_df = pd.read_csv("chemmeta.csv")
 # Get a list of all unique chemical ids
 all_chem_ids = list(set(chemmeta_df["ChemicalID"]))
 
 # Get the sample meta data for reference later
-meta_df = pd.read_csv(f"supermeta.csv")
+meta_df = pd.read_csv("supermeta.csv")
 # Sort the meta data for easier reference
 meta_df = meta_df.sort_values(by=["FileName"])
 # Get a list of the columns in meta_df
