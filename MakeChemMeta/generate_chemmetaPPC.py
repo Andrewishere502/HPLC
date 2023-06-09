@@ -58,8 +58,8 @@ class Bucket:
     def __getitem__(self, i):
         return self.peaks[i]
     
-def load_peakstxt(filename):
-    """return a sorted float list of the peaks in a given text file"""
+def load_peaks_txt(filename):
+    """Return a sorted float list of the peaks in a given text file."""
     with open(f"MakeChemMeta/{filename}", "r",) as file:
         #named jacobs journal in honor of the person who ran the HPLC for us :)
         jacobs_journal = [float(n) for n in file.read().split(",")]  
@@ -83,8 +83,8 @@ def group_peaks(peaks):
 chemmeta_file = open("MakeChemMeta/chemmeta.csv", "w")
 chemmeta_file.write("BeginRetTime,EndRetTime,ChemicalID\n")
 
-cards = group_peaks(load_peakstxt("card.txt"))
-pps =  group_peaks(load_peakstxt("pp.txt"))
+cards = group_peaks(load_peaks_txt("card.txt"))
+pps =  group_peaks(load_peaks_txt("pp.txt"))
 
 for bucket in cards:
     line = f"{bucket.min},{bucket.max},C{round(bucket.mean,1)}_Area\n"
