@@ -95,10 +95,10 @@ card_buckets = group_peaks(load_peaks_txt("card.txt"), 0.15)
 write_buckets(card_buckets, chemmeta_file, id_prefix="C")
 print(f"Number of cardenolide buckets: {len(card_buckets)}")
 
-# Get the phenolpropanoid specific buckets
+# Get the phenylpropanoid specific buckets
 pp_buckets =  group_peaks(load_peaks_txt("pp.txt"), 0.15)
 # Write teh card buckets to chemmeta
 write_buckets(pp_buckets, chemmeta_file, id_prefix="PP")
-print(f"Number of phenolpropanoid buckets: {len(pp_buckets)}")
+print(f"Number of phenylpropanoid buckets: {len(pp_buckets)}")
 
 chemmeta_file.close()
