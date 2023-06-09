@@ -80,23 +80,23 @@ def group_peaks(peaks, margin):
             buckets.append(Bucket([peak]))
     return buckets
 
-# Set up the chemical meta data file, erasig it's contents if it
+def write_buckets(buckets, chemmeta_file, id_prefix=""):
+    for bucket in buckets:
+        line = f"{bucket.min},{bucket.max},{id_prefix}{round(bucket.mean,1)}_Area\n"
+        chemmeta_file.write(line)
+    return
+
+# Set up the chemical meta data file, erasing its contents if it
 # already exists.
 chemmeta_file = open("MakeChemMeta/chemmeta.csv", "w")
 chemmeta_file.write("BeginRetTime,EndRetTime,ChemicalID\n")
 
 card_buckets = group_peaks(load_peaks_txt("card.txt"))
+write_buckets(card_buckets, chemmeta_file, id_prefix="C")
 print(f"Number of cardenolide buckets: {len(card_buckets)}")
 
 pp_buckets =  group_peaks(load_peaks_txt("pp.txt"))
+write_buckets(pp_buckets, chemmeta_file, id_prefix="PP")
 print(f"Number of phenolpropanoid buckets: {len(pp_buckets)}")
-
-for bucket in cards:
-    line = f"{bucket.min},{bucket.max},C{round(bucket.mean,1)}_Area\n"
-    chemmeta_file.write(line)
-
-for bucket in pps:
-    line = f"{bucket.min},{bucket.max},PP{round(bucket.mean,1)}_Area\n"
-    chemmeta_file.write(line)
 
 chemmeta_file.close()
