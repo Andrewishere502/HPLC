@@ -5,10 +5,10 @@ CARD_TXT = "card.txt"
 PP_TXT = "pp.txt"
 
 #Margin for Cardenolide buckets
-CARD_MARG = 0.2
+CARD_MARGIN = 0.2
 
 #Margin for Phenylpropanoid buckets
-PP_MARG = 0.25
+PP_MARGIN = 0.25
 
 PROCESSED_INPUT_FOLDER = "ProcessedInput"
 
