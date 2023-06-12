@@ -28,8 +28,8 @@ if not os.path.exists(RIF):
 # for processed input folder.
 PIF = config.PROCESSED_INPUT_FOLDER
 if not os.path.exists(PIF):
-    print(f"{config.PROCESSED_INPUT_FOLDER} directory did not exist: Created {config.PROCESSED_INPUT_FOLDER}.")
-    os.mkdir(config.PROCESSED_INPUT_FOLDER)
+    print(f"{PIF} directory did not exist: Created {PIF}.")
+    os.mkdir(PIF)
 
 # Get a list of all the raw data folders. Parse non-folders by excluding
 # anything with a file extension.
