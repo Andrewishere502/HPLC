@@ -4,6 +4,7 @@ and put that data in a file named after the directory the data was
 found in.
 """
 import os
+import config
 
 import pandas as pd
 
@@ -16,16 +17,16 @@ logger = Logger("", "log.txt", erase_on_init=True)
 # RawInput is the folder to put all of the raw data into. RIF stands
 # for raw input folder
 # RIF = "RawInput"
-RIF = "/Volumes/OlsonLab/RawInput"
+RIF = config.RAW_INPUT_FOLDER
 if not os.path.exists(RIF):
     raise OSError("RawInput folder not found. Please ensure it exists in your path and is named correctly.")
 
 # Define a folder for where all processed data should go. PIF stands
 # for processed input folder.
-PIF = "ProcessedInput"
+PIF = config.PROCESSED_INPUT_FOLDER
 if not os.path.exists(PIF):
-    print(f"ProcessedInput directory did not exist: Created {PIF}.")
-    os.mkdir(PIF)
+    print(f"{config.PROCESSED_INPUT_FOLDER} directory did not exist: Created {config.PROCESSED_INPUT_FOLDER}.")
+    os.mkdir(config.PROCESSED_INPUT_FOLDER)
 
 # Get a list of all the raw data folders. Parse non-folders by excluding
 # anything with a file extension.
