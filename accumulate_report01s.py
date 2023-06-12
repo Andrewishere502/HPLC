@@ -5,6 +5,8 @@ found in.
 """
 import os
 
+import pandas as pd
+
 from logger import Logger
 
 
@@ -13,7 +15,8 @@ logger = Logger("", "log.txt", erase_on_init=True)
 
 # RawInput is the folder to put all of the raw data into. RIF stands
 # for raw input folder
-RIF = "RawInput"
+# RIF = "RawInput"
+RIF = "/Volumes/OlsonLab/RawInput"
 if not os.path.exists(RIF):
     raise OSError("RawInput folder not found. Please ensure it exists in your path and is named correctly.")
 
@@ -34,37 +37,30 @@ for folder_name in raw_data_folders:
     # sorted alphanumerically.
     filenames = sorted([fn for fn in os.listdir(f"{RIF}/{folder_name}") if fn[-2:] == ".D"])
 
-    # Make the folder for accumulated data
-    accumulated_folder_name = "acc_" + folder_name
-    try:
-        os.mkdir(f"{PIF}/{accumulated_folder_name}")
-    except FileExistsError:
-        pass
+    # Make a DataFrame to store all of the Report01 files found within
+    # a directory's sub-directories.
+    folder_df = pd.DataFrame(columns=["FileName", "PeakNum", "RetTime", "Area"])
 
-    # Convert the Report01.csv files to only include peak, ret time
-    # and area.
     for filename in filenames:
-        # Catch the error thrown if no Report01.csv file is found
+        # Catch error thrown if no Report01.csv file is found
         try:
             # Get the contents of the old file
             with open(f"{RIF}/{folder_name}/{filename}/Report01.csv", "r", encoding="utf-16") as file:
-                # NOTE: the Report01.csv files have no headers, so don't skip
-                # first line.
-                lines = file.readlines()
+                # Store the file name, peak number, retention time, and
+                # area in each line of the .csv file as a row in the
+                # dataframe.
+                for line in file.readlines():
+                    # Get relevant data from the line, exclude
+                    # irrelevant data with _
+                    peak_num, ret_time, _, _, area, *_ = line.split(",")
+                    # Add as the last row in folder_df
+                    folder_df.loc[len(folder_df.index)] = (filename, peak_num, ret_time, area)
+                
         except FileNotFoundError:
             # This is a non-fatal error, log it and skip this file
             logger.log(f"There was no Report01.csv file for {RIF}/{folder_name}/{filename}.")
             continue  # skip to next in filenames
 
-        # Process the data and write it to a file named after the
-        # lowest level parent folder the data was found in
-        with open(f"{PIF}/{accumulated_folder_name}/{filename}.csv", "w") as file:
-            header = "Peak,RetTime,Area\n"
-            file.write(header)
-
-            # Write only the peak number, retention time, and the area
-            # under the peak to the new .csv file
-            for line in lines:
-                peak_num, ret_time, _, _, area, *_ = line.split(",")
-                new_line = f"{peak_num},{ret_time},{area}\n"
-                file.write(new_line)
+    # Save the folder's DataFrame if it is not empty.
+    if len(folder_df.values) > 0:
+        folder_df.to_csv(f"{PIF}/acc_{folder_name}.csv", index=False, index_label=False)
