@@ -41,6 +41,7 @@ def get_meta_data(parent_directory, filename, meta_df):
         meta_data = ["NA"] * len(meta_df.columns)
     return dict(zip(meta_df.columns, meta_data))
 
+
 # Create an object to log errors that occur. Don't erase the contents
 # when run to preserve error logs from accumulate_report01s.py
 logger = Logger("", "log.txt", erase_on_init=False)
@@ -77,15 +78,25 @@ output_df = pd.DataFrame(columns=(meta_columns + sorted(all_chem_ids)))
 
 # Get all csv files by name into a list.
 processed_filenames = [fn for fn in os.listdir(PIF) if fn[-4:] == ".csv"]
+processed_file_counter = 1
 for processed_filename in processed_filenames:
+    print(f"Starting processed file {processed_file_counter}/{len(processed_filenames)} {processed_filename}")
     # Read the processed csv file into a DataFrame
     df = pd.read_csv(f"{PIF}/{processed_filename}")
+    
     # Remove the acc_ and .csv parts from the processed_filename
     # to get the parent directory name of the files referenced within
     # the csv.
     parent_directory = processed_filename[4:].replace(".csv", "")
-    print(len(set([*df["FileName"].values])))
-    for filename in set([*df["FileName"].values]):
+    
+    # Get a list of the file names listed inside the processed file,
+    # and add one row detailing the chemicals found in that sample for
+    # each file name.
+    unique_inner_filenames = set([*df["FileName"].values])
+    print(f"\t~Finalizing data ({len(unique_inner_filenames)}):")
+    unique_inner_counter = 1
+    for filename in unique_inner_filenames:
+        print(f"\t\t-> {unique_inner_counter}/{len(unique_inner_filenames)} {filename}")
         # Get the meta data for this file
         meta_data = get_meta_data(parent_directory, filename, meta_df)
 
@@ -103,6 +114,12 @@ for processed_filename in processed_filenames:
         
         # Update the output DataFrame
         output_df = output_df.append(output_row, ignore_index=True)
+        
+        # Update unique inner file counter
+        unique_inner_counter += 1
+
+    # Update processed file progression counter
+    processed_file_counter += 1
 
 # Replace all na chem ids with 1
 for chem_id in all_chem_ids:
@@ -114,3 +131,6 @@ output_df["ProportionSyriaca"].replace(np.NaN, "na", inplace=True)
 # Save the final dataset if it is not empty
 if len(output_df.values) > 0:
     output_df.to_excel(f"{OF}/finalDataset.xlsx")
+    print(f"*Finalized and saved*")
+else:
+    print(f"*No data to save*")
