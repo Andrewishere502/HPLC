@@ -106,11 +106,6 @@ def change_chem_times(df, name1, name2, start1, end1, start2, end2):
     add_chem(df, name2, start2, end2)
     return
 
-def combine_names(name1, name2):
-    """Return the combined name for two chem ids."""
-    name = name1.split("_")[0] + name2.split("_")[0] + "_Area"
-    return name
-
 def merge_chem_times(df, cpp1, cpp2):
     """Add a new row to the df with the combined name of the
     cardenolide and phenylpropanoid.
