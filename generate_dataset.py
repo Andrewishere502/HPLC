@@ -29,9 +29,9 @@ def get_meta_data(parent_directory, filename, meta_df):
     directory.
     """
     # Narrow down the meta_df by the parent folder name
-    dir_df = meta_df[meta_df["ParentFolderName"] == parent_directory]
+    dir_df = meta_df[meta_df["FolderName"] == parent_directory]
     # Now filter out all rows that do not match the file name
-    file_df = dir_df[dir_df["FileName"] == filename]
+    file_df = dir_df[dir_df["HPLCdatafilename"] == filename]
 
     # Convert those values into a list. If there were no matching rows
     # found, catch the IndexError and return an list full of None.
@@ -62,14 +62,24 @@ if not os.path.exists(OF):
     os.mkdir("Output")
 
 # Get the chemical meta data for reference later
-chemmeta_df = pd.read_csv("chemmeta.csv")
+chem_meta_file = config.CHEM_META_FILE
+try:
+    chemmeta_df = pd.read_csv(chem_meta_file)
+except FileNotFoundError:
+    print(f"Chem meta file '{chem_meta_file}' not found. Please ensure you have created this file and input its path in config.py.")
+    quit()
 # Get a list of all unique chemical ids
 all_chem_ids = list(set(chemmeta_df["ChemicalID"]))
 
 # Get the sample meta data for reference later
-meta_df = pd.read_csv("supermeta.csv")
+super_meta_file = config.SUPER_META_FILE
+try:
+    meta_df = pd.read_csv("supermeta.csv")
+except FileNotFoundError:
+    print(f"Super meta file '{super_meta_file}' not found. Please ensure you have created this file and input its path in config.py.")
+    quit()
 # Sort the meta data for easier reference
-meta_df = meta_df.sort_values(by=["FileName"])
+meta_df = meta_df.sort_values(by=["HPLCdatafilename"])
 # Get a list of the columns in meta_df
 meta_columns = list(meta_df.columns)
 
@@ -125,12 +135,9 @@ for processed_filename in processed_filenames:
 for chem_id in all_chem_ids:
     output_df[chem_id].replace(np.NaN, 1, inplace=True)
 
-# Replace any nan in ProportionSyriaca with "na"
-output_df["ProportionSyriaca"].replace(np.NaN, "na", inplace=True)
-
 # Save the final dataset if it is not empty
 if len(output_df.values) > 0:
-    output_df.to_excel(f"{OF}/finalDataset.xlsx")
+    output_df.to_csv(f"{OF}/finalDataset.csv", index=False, index_label=False)
     print(f"*Finalized and saved*")
 else:
     print(f"*No data to save*")
