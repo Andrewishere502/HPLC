@@ -59,7 +59,7 @@ class Bucket:
     
 def load_peaks_txt(filename):
     """Return a sorted float list of the peaks in a given text file."""
-    with open(f"MakeChemMeta/{filename}", "r",) as file:
+    with open(f"{filename}", "r",) as file:
         #named jacobs journal in honor of the person who ran the HPLC for us :)
         jacobs_journal = [float(n) for n in file.read().split(",")]  
     return jacobs_journal
@@ -88,7 +88,7 @@ def write_buckets(buckets, chemmeta_file, id_prefix=""):
 
 # Set up the chemical meta data file, erasing its contents if it
 # already exists.
-chemmeta_file = open("MakeChemMeta/chemmeta.csv", "w")
+chemmeta_file = open("chemmeta.csv", "w")
 chemmeta_file.write("BeginRetTime,EndRetTime,ChemicalID\n")
 
 # Get the cardenolide specific buckets
