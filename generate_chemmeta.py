@@ -1,3 +1,5 @@
+import config
+
 class Bucket:
     def __init__(self, peaks=[]):
         self.peaks = peaks
@@ -90,13 +92,13 @@ chemmeta_file = open("MakeChemMeta/chemmeta.csv", "w")
 chemmeta_file.write("BeginRetTime,EndRetTime,ChemicalID\n")
 
 # Get the cardenolide specific buckets
-card_buckets = group_peaks(load_peaks_txt("card.txt"), 0.15)
+card_buckets = group_peaks(load_peaks_txt(config.CARD_TXT), config.CARD_MARGIN)
 # Write the card buckets to chemmeta
 write_buckets(card_buckets, chemmeta_file, id_prefix="C")
 print(f"Number of cardenolide buckets: {len(card_buckets)}")
 
 # Get the phenylpropanoid specific buckets
-pp_buckets =  group_peaks(load_peaks_txt("pp.txt"), 0.15)
+pp_buckets =  group_peaks(load_peaks_txt(config.PP_TXT), config.PP_MARGIN)
 # Write teh card buckets to chemmeta
 write_buckets(pp_buckets, chemmeta_file, id_prefix="PP")
 print(f"Number of phenylpropanoid buckets: {len(pp_buckets)}")
