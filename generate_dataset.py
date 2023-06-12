@@ -2,6 +2,7 @@
 Run after accumulate_report01s.py.
 """
 import os
+import config
 
 import pandas as pd
 import numpy as np
@@ -14,7 +15,7 @@ def get_chem_id(ret_time, chemmeta_df):
     falls in.
     """
     for line in chemmeta_df.values:
-        begin_ret_time, end_ret_time, chem_id = list(line)
+        begin_ret_time, end_ret_time, chem_id, frequency = list(line)
         if ret_time >= float(begin_ret_time) and ret_time <= float(end_ret_time):
             return chem_id
     return  # no id found, return None
@@ -43,14 +44,14 @@ logger = Logger("", "log.txt", erase_on_init=False)
 
 # Define a folder for where all intermediate input data should be.
 # PIF stands for processed input folder.
-PIF = "ProcessedInput"
+PIF = config.PROCESSED_INPUT_FOLDER
 # Raise an error if the ProcessedInput folder doesn't exist because
 # that means the user hasn't run accumulate_report01s.py yet.
 if not os.path.exists(PIF):
     raise OSError("The directory ProcessedInput does not exist. Please run accumulate_report01s.py to create and populate it.")
 
 # Define a folder where the output will go. OF stands for output folder
-OF = "Output"
+OF = config.OUTPUT_FOLDER
 # Make the output folder if it doesn't exist
 if not os.path.exists(OF):
     print("Output directory did not exist: Created Output.")
