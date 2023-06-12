@@ -123,7 +123,7 @@ for processed_filename in processed_filenames:
                 output_row.update({chem_id: area})
         
         # Update the output DataFrame
-        output_df = output_df.append(output_row, ignore_index=True)
+        output_df.loc[len(output_df.index)] = output_row
         
         # Update unique inner file counter
         unique_inner_counter += 1
