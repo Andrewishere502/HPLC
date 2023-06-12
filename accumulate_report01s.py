@@ -3,12 +3,15 @@ Report01.csv files scattered throughout an HPLC Chromatogram directory,
 and put that data in a file named after the directory the data was
 found in.
 """
+# Standard library imports
 import os
-import config
 
+# Third party imports
 import pandas as pd
 
+# Import from our app
 from logger import Logger
+import config
 
 
 # Create an object to log errors that occur
