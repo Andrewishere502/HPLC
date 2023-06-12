@@ -20,41 +20,22 @@ def get_chem_id(ret_time, chemmeta_df):
     return  # no id found, return None
 
 
-def get_meta_data(directory, filename, meta_df):
-    """Return the meta_data associated with the given filename.
-    Return 1 if this whole directory is missing meta data.
-    Return 2 if this specific file is missing meta data.
+def get_meta_data(parent_directory, filename, meta_df):
+    """Return the meta data for a file name found in a specific
+    directory.
     """
-    # Get all of the meta entries associated the given directory
-    dir_df = meta_df[meta_df["ParentFolderName"] == directory]
-    if len(dir_df.values) == 0:
-        logger.log(f"Directory {directory} does not have any meta data.")
-        return 1
-    
-    # Remove the .csv suffix from filename if it is there
-    filename = filename.replace(".csv", "")
+    # Narrow down the meta_df by the parent folder name
+    dir_df = meta_df[meta_df["ParentFolderName"] == parent_directory]
+    # Now filter out all rows that do not match the file name
+    file_df = dir_df[dir_df["FileName"] == filename]
 
-    # Grab the meta data in this directory that matches the given filename
-    results = dir_df[dir_df["FileName"] == filename].values
-    if len(results) == 1:
-        # Get the metadata and label each value with it's column
-        meta_data = dict(zip(dir_df.columns, results[0]))
-        return meta_data
-
-    # Got no matches
-    elif len(results) < 1:
-        # This doesn't need to be a fatal error because we can just
-        # skip the file.
-        logger.log(f"There is no meta data for file named {filename} in {directory}.")
-        # If we get here, then there was no good result from querrying the
-        return 2
-
-     # Got more than 1 match
-    else:
-        # As of yet, there is no way to tell which file is the one we
-        # want, so this should be a fatal error.
-        raise ValueError(f"There are {len(results)} files in {directory} with name {filename}. Duplicates are not allowed.")
-    
+    # Convert those values into a list. If there were no matching rows
+    # found, catch the IndexError and return an list full of None.
+    try:
+        meta_data = list(file_df.values[0])
+    except IndexError:
+        meta_data = ["NA"] * len(meta_df.columns)
+    return dict(zip(meta_df.columns, meta_data))
 
 # Create an object to log errors that occur. Don't erase the contents
 # when run to preserve error logs from accumulate_report01s.py
@@ -63,11 +44,14 @@ logger = Logger("", "log.txt", erase_on_init=False)
 # Define a folder for where all intermediate input data should be.
 # PIF stands for processed input folder.
 PIF = "ProcessedInput"
+# Raise an error if the ProcessedInput folder doesn't exist because
+# that means the user hasn't run accumulate_report01s.py yet.
 if not os.path.exists(PIF):
     raise OSError("The directory ProcessedInput does not exist. Please run accumulate_report01s.py to create and populate it.")
 
 # Define a folder where the output will go. OF stands for output folder
 OF = "Output"
+# Make the output folder if it doesn't exist
 if not os.path.exists(OF):
     print("Output directory did not exist: Created Output.")
     os.mkdir("Output")
@@ -84,63 +68,45 @@ meta_df = meta_df.sort_values(by=["FileName"])
 # Get a list of the columns in meta_df
 meta_columns = list(meta_df.columns)
 
+# DataFrame where all the output will be located
+output_df = pd.DataFrame(columns=(meta_columns + sorted(all_chem_ids)))
 
-# Get a list of all the processed data folders, i.e. they have been
-# output by accumulate_report01s.py
-processed_data_folders = os.listdir(PIF)
-# Exclude the meta data files and hidden files like .DS_Store
-processed_data_folders = [folder_name for folder_name in processed_data_folders
-                          if folder_name[-4:] != ".csv" and folder_name[0] != "."]
-for folder_name in processed_data_folders:
-    # This is the folder where all of the input data should be
-    accumulated_folder_path = f"{PIF}/{folder_name}"
+# Get all csv files by name into a list.
+processed_filenames = [fn for fn in os.listdir(PIF) if fn[-4:] == ".csv"]
+for processed_filename in processed_filenames:
+    # Read the processed csv file into a DataFrame
+    df = pd.read_csv(f"{PIF}/{processed_filename}")
+    # Remove the acc_ and .csv parts from the processed_filename
+    # to get the parent directory name of the files referenced within
+    # the csv.
+    parent_directory = processed_filename[4:].replace(".csv", "")
+    print(len(set([*df["FileName"].values])))
+    for filename in set([*df["FileName"].values]):
+        # Get the meta data for this file
+        meta_data = get_meta_data(parent_directory, filename, meta_df)
 
-    # Get a list of all the file names containing raw data
-    filenames = [filename for filename in os.listdir(accumulated_folder_path)
-                 if filename[-6:-4] == ".D"]
-
-    # Create the output dataframe
-    columns = meta_columns + sorted(all_chem_ids)
-    output_df = pd.DataFrame(columns=columns)
-
-    # Loop through each filename containing peak, retention time and area
-    # data.
-    for filename in filenames:
-        # Get the data from the file
-        df = pd.read_csv(f"{accumulated_folder_path}/{filename}")
-
-        # Get the meta data associated with this file via filename,
-        # excluding the 'acc_' portion.
-        meta_data = get_meta_data(folder_name[4:], filename, meta_df)
-        
-        # Catch non-fatal errors from get_meta_data call
-        if meta_data == 1:
-            # Skip this whole folder and move on. Check log.txt for error log.
-            break
-        elif meta_data == 2:
-            # Skip this file and move on. Check log.txt for error log.
-            continue
-
-        # Put together a row summarizing this whole file to be output in
-        # output_df.
+        # Assemble the output row for output_df
         output_row = meta_data
         output_row.update({chem_id: None for chem_id in sorted(all_chem_ids)})
-        for row in df.values:
-            peak_num, ret_time, area = list(row)
-            # Get the chem meta data associated with the retention time
+
+        # Get a DataFrame for all the retention times and areas for
+        # this file name
+        chem_data = df[df["FileName"] == filename][["RetTime", "Area"]].values
+        for ret_time, area in chem_data:
             chem_id = get_chem_id(ret_time, chemmeta_df)
-            # If a chem_id was found, record the area for it in output_row
             if chem_id != None:
                 output_row.update({chem_id: area})
-
-        # Update the output_df with the new row
+        
+        # Update the output DataFrame
         output_df = output_df.append(output_row, ignore_index=True)
 
+# Replace all na chem ids with 1
+for chem_id in all_chem_ids:
+    output_df[chem_id].replace(np.NaN, 1, inplace=True)
 
-    # Replace missing data for all chem_id columns
-    for chem_id in all_chem_ids:
-        output_df[chem_id].replace(np.NaN, 1, inplace=True)
+# Replace any nan in ProportionSyriaca with "na"
+output_df["ProportionSyriaca"].replace(np.NaN, "na", inplace=True)
 
-    # Save the final dataset if it actually has data in it
-    if len(output_df.values) > 0:
-        output_df.to_excel(f"{OF}/{folder_name}_finalDataset.xlsx")
+# Save the final dataset if it is not empty
+if len(output_df.values) > 0:
+    output_df.to_excel(f"{OF}/finalDataset.xlsx")
