@@ -15,7 +15,7 @@ def get_chem_id(ret_time, chemmeta_df):
     falls in.
     """
     for line in chemmeta_df.values:
-        begin_ret_time, end_ret_time, chem_id, frequency = list(line)
+        begin_ret_time, end_ret_time, chem_id = list(line)
         if ret_time >= float(begin_ret_time) and ret_time <= float(end_ret_time):
             return chem_id
     return  # no id found, return None
