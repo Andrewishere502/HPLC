@@ -4,6 +4,7 @@ import pandas as pd
 
 import config
 
+
 class Bucket:
     def __init__(self, peaks=[]):
         self.peaks = peaks
@@ -116,7 +117,7 @@ def merge_chem_times(df, cpp1, cpp2):
 
 # Set up the chemical meta data file, erasing its contents if it
 # already exists.
-with open("chemmeta.csv", "w") as chemmeta_file:
+with open(config.CHEM_META_FILE, "w") as chemmeta_file:
     chemmeta_file.write("BeginRetTime,EndRetTime,ChemicalID\n")
 
     # Get the cardenolide specific buckets
@@ -133,7 +134,7 @@ with open("chemmeta.csv", "w") as chemmeta_file:
 
 
 # Get all unique overlapping card and pp pairs
-with open("chemmeta.csv", "r") as chemmeta_file:
+with open(config.CHEM_META_FILE, "r") as chemmeta_file:
     lines = chemmeta_file.readlines()
 hits = set()
 header = lines.pop(0)
@@ -159,7 +160,7 @@ for line in lines:
 
 # Fix all overlaps
 delete_me = set()
-df = pd.read_csv("chemmeta.csv", index_col=2)
+df = pd.read_csv(config.CHEM_META_FILE, index_col=2)
 for c_name, pp_name in hits:
     c1, c2 = df.loc[c_name]
     p1, p2 = df.loc[pp_name]
@@ -255,4 +256,4 @@ for c_name, pp_name in hits:
 df.drop(labels=list(delete_me), axis=0, inplace=True)
 
 # Save the csv
-df.to_csv("chemmeta.csv")
+df.to_csv(config.CHEM_META_FILE)
