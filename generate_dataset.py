@@ -18,7 +18,7 @@ def get_chem_id(ret_time, chemmeta_df):
     falls in.
     """
     for line in chemmeta_df.values:
-        begin_ret_time, end_ret_time, chem_id = list(line)
+        chem_id, begin_ret_time, end_ret_time = list(line)
         if ret_time >= float(begin_ret_time) and ret_time <= float(end_ret_time):
             return chem_id
     return  # no id found, return None
@@ -38,7 +38,8 @@ def get_meta_data(parent_directory, filename, meta_df):
     try:
         meta_data = list(file_df.values[0])
     except IndexError:
-        meta_data = ["NA"] * len(meta_df.columns)
+        logger.log(f"{parent_directory}/{filename} could not be found in the super meta data file.")
+        meta_data = ["na"] * len(meta_df.columns)
     return dict(zip(meta_df.columns, meta_data))
 
 
@@ -96,8 +97,8 @@ for processed_filename in processed_filenames:
     
     # Remove the acc_ and .csv parts from the processed_filename
     # to get the parent directory name of the files referenced within
-    # the csv.
-    parent_directory = processed_filename[4:].replace(".csv", "")
+    # the csv. Also remove New from the filename.
+    parent_directory = processed_filename[4:].replace(".csv", "").replace("New", "")
     
     # Get a list of the file names listed inside the processed file,
     # and add one row detailing the chemicals found in that sample for
