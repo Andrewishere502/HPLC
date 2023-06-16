@@ -3,6 +3,7 @@ Run after accumulate_report01s.py.
 """
 # Standard library imports
 import os
+import datetime
 
 # Third party imports
 import pandas as pd
@@ -113,14 +114,14 @@ for processed_filename in processed_filenames:
 
         # Assemble the output row for output_df
         output_row = meta_data
-        output_row.update({chem_id: None for chem_id in sorted(all_chem_ids)})
+        output_row.update({chem_id: -1 for chem_id in sorted(all_chem_ids)})
 
         # Get a DataFrame for all the retention times and areas for
         # this file name
         chem_data = df[df["FileName"] == filename][["RetTime", "Area"]].values
         for ret_time, area in chem_data:
             chem_id = get_chem_id(ret_time, chemmeta_df)
-            if chem_id != None:
+            if chem_id != None and area > output_row.get(chem_id):
                 output_row.update({chem_id: area})
         
         # Update the output DataFrame
@@ -132,13 +133,15 @@ for processed_filename in processed_filenames:
     # Update processed file progression counter
     processed_file_counter += 1
 
-# Replace all na chem ids with 1
+# Replace all -1 chem ids with NaN
 for chem_id in all_chem_ids:
-    output_df[chem_id].replace(np.NaN, 1, inplace=True)
+    output_df[chem_id].replace(-1, np.NaN, inplace=True)
 
 # Save the final dataset if it is not empty
 if len(output_df.values) > 0:
-    output_df.to_csv(f"{OF}/finalDataset.csv", index=False, index_label=False)
+    # Year, month, day, hour, minute
+    now_str = datetime.datetime.now().strftime('%Y-%m-%d-%I-%M')
+    output_df.to_csv(f"{OF}/finalDataset{now_str}.csv", index=False, index_label=False)
     print(f"*Finalized and saved*")
 else:
     print(f"*No data to save*")
