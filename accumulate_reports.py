@@ -50,10 +50,10 @@ for folder_name in raw_data_folders:
     file_counter = 1
     for filename in filenames:
         print(f"\t\t-> {file_counter}/{len(filenames)} {filename}")
-        # Catch error thrown if no Report01.csv file is found
+        # Catch error thrown if no report file is found
         try:
             # Get the contents of the old file
-            with open(f"{RIF}/{folder_name}/{filename}/Report01.csv", "r", encoding="utf-16") as file:
+            with open(f"{RIF}/{folder_name}/{filename}/REPORT02.csv", "r", encoding="utf-16") as file:
                 # Read lines then close to save memory
                 lines = file.readlines()
 
@@ -71,7 +71,7 @@ for folder_name in raw_data_folders:
                 
         except FileNotFoundError:
             # This is a non-fatal error, log it and skip this file
-            logger.log(f"There was no Report01.csv file for {RIF}/{folder_name}/{filename}.")
+            logger.log(f"There was no report file for {RIF}/{folder_name}/{filename}.")
             # Increment file counter
             file_counter += 1
             continue  # skip to next in filenames
