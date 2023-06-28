@@ -6,6 +6,12 @@ CARD_TXT = "card.txt"
 # peak retention times.
 PP_TXT = "pp.txt"
 
+#The wavelength used by the HPLC to emphasize cardenolides
+LAM_CARD = 350
+
+#The wavelength used by the HPLC to emphasize phenylpropanoids
+LAM_PP = 330
+
 # Margin for buckets
 BUCKET_MARGIN = 0.1
 
@@ -14,12 +20,12 @@ DELETE_AMBIG = True
 
 # Max and minimum range for a compound to be recognized
 MAX_RANGE = 1.3
-MIN_RANGE = 0.2
+MIN_RANGE = 0.0
 
 # The absolute or relative path to the .csv file that stores the
 # chemical meta data. This must exist before running
 # generate_dataset.py. Must be a csv file.
-CHEM_META_FILE = f"HPLC-main\\chemmeta_{BUCKET_MARGIN}_Ambig{not DELETE_AMBIG}.csv"
+CHEM_META_FILE = f"chemmeta_{BUCKET_MARGIN}_Ambig{not DELETE_AMBIG}.csv"
 
 # The absolute or relative path to the .csv file that stores the
 # sample (super) meta data. This must exist before running
