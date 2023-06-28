@@ -31,6 +31,10 @@ class Bucket:
     @property
     def max(self):
         return max(self.peaks)
+    
+    @property
+    def range(self):
+        return self.max - self.min
 
     def add_peak(self, peak):
         """Add a peak to the population."""
@@ -41,7 +45,7 @@ class Bucket:
         """Return a string with info on size of self.peaks, and the
         mean and standard deviation, and min and max
         """
-        return f"size: {len(self.peaks)}\nmean: {self.mean}\nStd: {self.std}\nMinimum: {self.min}\nMaximum: {self.max}"
+        return f"size: {len(self.peaks)}\nmean: {self.mean}\nStd: {self.std}\nMinimum: {self.min}\nMaximum: {self.max}\nRange: {self.range}"
 
     def is_outlier(self, peak):
         """Return True if peak is more than 3 standard deviations from
@@ -64,11 +68,12 @@ class Bucket:
         return self.peaks[i]
     
 
-def load_peaks_txt(filename):
+def load_peaks_txt(filename, desired_id):
     """Return a sorted float list of the peaks in a given text file."""
-    with open(f"{filename}", "r",) as file:
-        #named jacobs journal in honor of the person who ran the HPLC for us :)
-        jacobs_journal = [float(n) for n in file.read().split(",")]  
+    df_cpp = pd.read_csv(filename)
+    #named jacobs journal in honor of the person who ran the HPLC for us :)
+    jacobs_journal = df_cpp[df_cpp["ID"] == desired_id].RoundRet.values
+
     return jacobs_journal
 
 def group_peaks(peaks, margin):
@@ -85,6 +90,7 @@ def group_peaks(peaks, margin):
             buckets[-1].add_peak(peak)
         else:
             buckets.append(Bucket([peak]))
+
 
     # Remove any buckets outside of an allowed range
     valid_buckets = []
@@ -131,13 +137,13 @@ with open(config.CHEM_META_FILE, "w") as chemmeta_file:
     chemmeta_file.write("BeginRetTime,EndRetTime,ChemicalID\n")
 
     # Get the cardenolide specific buckets
-    card_buckets = group_peaks(load_peaks_txt(config.CARD_TXT), config.BUCKET_MARGIN)
+    card_buckets = group_peaks(load_peaks_txt("ProcessedInput/acc_New2022-06-2910-10-34.csv", "C"), config.BUCKET_MARGIN)
     # Write the card buckets to chemmeta
     write_buckets(card_buckets, chemmeta_file, id_prefix="C")
     print(f"Number of initial cardenolide buckets: {len(card_buckets)}")
 
     # Get the phenylpropanoid specific buckets
-    pp_buckets =  group_peaks(load_peaks_txt(config.PP_TXT), config.BUCKET_MARGIN)
+    pp_buckets =  group_peaks(load_peaks_txt("ProcessedInput/acc_New2022-06-2910-10-34.csv", "PP"), config.BUCKET_MARGIN)
     # Write the card buckets to chemmeta
     write_buckets(pp_buckets, chemmeta_file, id_prefix="PP")
     print(f"Number of initial phenylpropanoid buckets: {len(pp_buckets)}")
