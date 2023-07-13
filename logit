@@ -1,0 +1,49 @@
+from sklearn.linear_model import LogisticRegression
+import statsmodels.api as sm
+import pandas as pd
+from statsmodels.stats.outliers_influence import variance_inflation_factor as get_VIF
+
+
+def normalize_row(row):
+    min_ = min(row)
+    max_ = max(row)
+    new_row = []
+    for v in row:
+        new_row.append((v - min_) / (max_ - min_))
+    return new_row
+
+def split_df(df):
+    return
+
+
+df = pd.read_csv("ProcessedInput/acc_New2022-07-2113-44-40train.csv")
+X = df[['RoundRet','250Area','240Area','350Area','330Area']]
+
+
+X = sm.add_constant(X)
+for i, row in enumerate(X.values):
+    # Don't normalize the const or the roundRet
+    X.loc[i][2:] = normalize_row(row[2:])
+
+y = pd.get_dummies(df['ID'])['PP']
+
+X.drop(labels=['250Area'], axis=1, inplace=True)
+# print(X)
+
+vif_data = pd.DataFrame()
+vif_data["feature"] = X.columns
+vif_data["VIF"] = [get_VIF(X.values, i) for i in range(len(X.columns))]
+print(vif_data)
+
+
+pp_model = LogisticRegression().fit(X[:-1],y[:-1])
+pred = pp_model.predict([X.loc[len(X) - 1]])[0]
+prob = pp_model.predict_proba([X.loc[len(X) - 1]])
+print(f"Predicted: {pred} | True: {y.loc[len(y) - 1]}")
+
+
+y = pd.get_dummies(df['ID'])['C']
+c_model = LogisticRegression().fit(X[:-1],y[:-1])
+pred = c_model.predict([X.loc[len(X) - 1]])[0]
+prob = c_model.predict_proba([X.loc[len(X) - 1]])
+print(f"Predicted: {pred} | True: {y.loc[len(y) - 1]}")
