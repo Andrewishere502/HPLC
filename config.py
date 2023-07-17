@@ -6,11 +6,8 @@ CARD_TXT = "card.txt"
 # peak retention times.
 PP_TXT = "pp.txt"
 
-#The wavelength used by the HPLC to emphasize cardenolides
-LAM_CARD = 350
-
-#The wavelength used by the HPLC to emphasize phenylpropanoids
-LAM_PP = 330
+#The wavelengths detected by each report
+LAM_LIST = [240, 250, 260, 330, 350]
 
 # Margin for buckets
 BUCKET_MARGIN = 0.1
